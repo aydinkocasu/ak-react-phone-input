@@ -1,0 +1,277 @@
+$white-pure: #ffffff;
+$white-accent: #f9fafb;
+$white-muted: #f3f4f6;
+$white-foreground: #d1d5db;
+$white-border: #e5e7eb;
+
+$black-pure: #111111;
+$black-accent: #1f1f1f;
+$black-muted: #2d2d2d;
+$black-foreground: #4a4a4a;
+$black-border: #3e3e3e;
+
+
+$white-text: #ffffff;
+$black-text: #1f2937;
+
+.ak-phone-input-main {
+  position: relative;
+  display: inline-block;
+  min-width: 160px;
+
+  &.filled {
+    .ak-phone-input-root {
+      background: $white-accent;
+
+      .ak-country-select-box {
+        background: $white-muted;
+
+        &:hover {
+          background: $white-accent;
+
+        }
+      }
+
+      .ak-country-code-and-input {
+
+        .phone-input {}
+      }
+
+      .cs-dropdown {
+        background: $white-accent;
+
+        input {
+          background: $white-accent;
+        }
+      }
+
+      .cs-option {
+        border-top: 1px solid $white-border;
+
+        &:hover {
+          background-color: $white-muted;
+        }
+      }
+
+
+
+    }
+  }
+
+  &.dark {
+    .ak-phone-input-root {
+      border-color: $black-border;
+      background: $black-pure;
+
+      .ak-country-select-box {
+        border-color: $black-border;
+        background: $black-pure;
+        color: $white-text;
+
+
+        &:hover {
+          background: $black-accent;
+        }
+      }
+
+      .ak-country-code-and-input {
+        color: $white-text;
+
+        .phone-input {
+          color: $white-text;
+        }
+      }
+
+      .cs-dropdown {
+        background: $black-pure;
+        border-color: $black-border;
+
+        input {
+          background: $black-pure;
+          color: $white-text;
+        }
+      }
+
+      .cs-option {
+        color: $white-text;
+
+        &:hover {
+          background-color: $black-accent;
+        }
+      }
+
+    }
+  }
+
+  &.filled.dark {
+    .ak-phone-input-root {
+      background: $black-accent;
+      border-color: $black-border;
+
+      .ak-country-select-box {
+        background: $black-muted;
+        color: $white-text;
+
+        &:hover {
+          background: $black-accent;
+        }
+      }
+
+      .ak-country-code-and-input {
+        color: $white-text;
+
+        .phone-input {
+          color: $white-text;
+        }
+      }
+
+
+    }
+  }
+
+
+  .ak-phone-input-root {
+    display: flex;
+    align-items: center;
+    border: 1px solid $white-border;
+    background: $white-pure;
+    gap: 6px;
+
+    .ak-country-select-box {
+      display: flex;
+      align-items: center;
+      padding: 12px 12px;
+      height: 100%;
+      border-right: 1px solid $white-border;
+      background: $white-pure;
+      gap: 4px;
+      cursor: pointer;
+      transition: .3s;
+      color: $black-text;
+
+      &:hover {
+        background: $white-muted;
+      }
+
+      .ak-phone-input-icon {
+        width: 16px;
+        height: 20px;
+        font-weight: 500;
+        transition: transform 0.3s ease;
+      }
+
+    }
+
+    .ak-country-code-and-input {
+      display: flex;
+      align-items: center;
+      color: #232323;
+      gap: 4px;
+      font-size: 16px;
+      width: 180px;
+
+      .country-code {
+        font-size: 16px;
+      }
+
+      .phone-input {
+        font-size: 16px;
+        background: transparent;
+        max-width: 140px;
+        color: $black-text;
+        border: none;
+        outline: none;
+      }
+    }
+
+    .country-flag {
+      border-radius: 4px;
+      width: 32px;
+      height: 20px;
+      object-fit: cover;
+    }
+  }
+
+}
+
+.ak-phone-input-dropdown {
+  min-width: fit-content;
+  z-index: 9999;
+  padding-bottom: 6px;
+  border: 1px solid $white-border;
+  background: $white-pure;
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+  &.no-sh {
+    box-shadow: none
+  }
+
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  input {
+    background: $white-pure;
+    color: $black-text;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    padding: 2px 12px;
+    height: 38px;
+  }
+
+  .cs-scroll {
+    flex: 1;
+    max-height: 198px;
+    overflow: auto;
+
+    .cs-option {
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: $black-text;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      .country-flag {
+        border-radius: 4px;
+        width: 32px;
+        height: 20px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &.filled.dark {
+    background: $black-accent;
+    color: $white-text;
+
+    input {
+      background: $black-accent;
+      color: $white-text;
+    }
+
+    .cs-option {
+      border-top: 1px solid $black-border;
+      color: $white-text;
+
+      &:hover {
+        background-color: $black-muted;
+      }
+    }
+  }
+}
