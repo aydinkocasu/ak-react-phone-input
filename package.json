@@ -26,10 +26,10 @@
   "peerDependencies": {
     "react": ">=17.0.0"
   },
-  "author": "Your Name",
+  "author": "aydinkocasu",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/ak-phone-input.git"
+    "url": "https://github.com/aydinkocasu/ak-react-phone-input"
   }
 }
