@@ -1,6 +1,6 @@
 {
   "name": "ak-react-phone-input",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A customizable phone input component for React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
