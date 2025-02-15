@@ -1,0 +1,201 @@
+.ak-phone-input-main {
+  position: relative;
+  display: inline-block;
+  min-width: 160px;
+}
+.ak-phone-input-main.filled .ak-phone-input-root {
+  background: #f9fafb;
+}
+.ak-phone-input-main.filled .ak-phone-input-root .ak-country-select-box {
+  background: #f3f4f6;
+}
+.ak-phone-input-main.filled .ak-phone-input-root .ak-country-select-box:hover {
+  background: #f9fafb;
+}
+.ak-phone-input-main.filled .ak-phone-input-root .cs-dropdown {
+  background: #f9fafb;
+}
+.ak-phone-input-main.filled .ak-phone-input-root .cs-dropdown input {
+  background: #f9fafb;
+}
+.ak-phone-input-main.filled .ak-phone-input-root .cs-option {
+  border-top: 1px solid #e5e7eb;
+}
+.ak-phone-input-main.filled .ak-phone-input-root .cs-option:hover {
+  background-color: #f3f4f6;
+}
+.ak-phone-input-main.dark .ak-phone-input-root {
+  border-color: #3e3e3e;
+  background: #111111;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .ak-country-select-box {
+  border-color: #3e3e3e;
+  background: #111111;
+  color: #ffffff;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .ak-country-select-box:hover {
+  background: #1f1f1f;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .ak-country-code-and-input {
+  color: #ffffff;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .ak-country-code-and-input .phone-input {
+  color: #ffffff;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .cs-dropdown {
+  background: #111111;
+  border-color: #3e3e3e;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .cs-dropdown input {
+  background: #111111;
+  color: #ffffff;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .cs-option {
+  color: #ffffff;
+}
+.ak-phone-input-main.dark .ak-phone-input-root .cs-option:hover {
+  background-color: #1f1f1f;
+}
+.ak-phone-input-main.filled.dark .ak-phone-input-root {
+  background: #1f1f1f;
+  border-color: #3e3e3e;
+}
+.ak-phone-input-main.filled.dark .ak-phone-input-root .ak-country-select-box {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+.ak-phone-input-main.filled.dark .ak-phone-input-root .ak-country-select-box:hover {
+  background: #1f1f1f;
+}
+.ak-phone-input-main.filled.dark .ak-phone-input-root .ak-country-code-and-input {
+  color: #ffffff;
+}
+.ak-phone-input-main.filled.dark .ak-phone-input-root .ak-country-code-and-input .phone-input {
+  color: #ffffff;
+}
+.ak-phone-input-main .ak-phone-input-root {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  gap: 6px;
+}
+.ak-phone-input-main .ak-phone-input-root .ak-country-select-box {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  height: 100%;
+  border-right: 1px solid #e5e7eb;
+  background: #ffffff;
+  gap: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #1f2937;
+}
+.ak-phone-input-main .ak-phone-input-root .ak-country-select-box:hover {
+  background: #f3f4f6;
+}
+.ak-phone-input-main .ak-phone-input-root .ak-country-select-box .ak-phone-input-icon {
+  width: 16px;
+  height: 20px;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+.ak-phone-input-main .ak-phone-input-root .ak-country-code-and-input {
+  display: flex;
+  align-items: center;
+  color: #232323;
+  gap: 4px;
+  font-size: 16px;
+  width: 180px;
+}
+.ak-phone-input-main .ak-phone-input-root .ak-country-code-and-input .country-code {
+  font-size: 16px;
+}
+.ak-phone-input-main .ak-phone-input-root .ak-country-code-and-input .phone-input {
+  font-size: 16px;
+  background: transparent;
+  max-width: 140px;
+  color: #1f2937;
+  border: none;
+  outline: none;
+}
+.ak-phone-input-main .ak-phone-input-root .country-flag {
+  border-radius: 4px;
+  width: 32px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.ak-phone-input-dropdown {
+  min-width: fit-content;
+  z-index: 9999;
+  padding-bottom: 6px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.ak-phone-input-dropdown.no-sh {
+  box-shadow: none;
+}
+.ak-phone-input-dropdown.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.ak-phone-input-dropdown input {
+  background: #ffffff;
+  color: #1f2937;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  padding: 2px 12px;
+  height: 38px;
+}
+.ak-phone-input-dropdown .cs-scroll {
+  flex: 1;
+  max-height: 198px;
+  overflow: auto;
+}
+.ak-phone-input-dropdown .cs-scroll .cs-option {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #1f2937;
+}
+.ak-phone-input-dropdown .cs-scroll .cs-option:hover {
+  background-color: #f0f0f0;
+}
+.ak-phone-input-dropdown .cs-scroll .cs-option .country-flag {
+  border-radius: 4px;
+  width: 32px;
+  height: 20px;
+  object-fit: cover;
+}
+.ak-phone-input-dropdown.filled.dark {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+.ak-phone-input-dropdown.filled.dark input {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+.ak-phone-input-dropdown.filled.dark .cs-option {
+  border-top: 1px solid #3e3e3e;
+  color: #ffffff;
+}
+.ak-phone-input-dropdown.filled.dark .cs-option:hover {
+  background-color: #2d2d2d;
+}
+
+/*# sourceMappingURL=AkPhoneInput.css.map */
