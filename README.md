@@ -10,6 +10,10 @@ To install the `ak-react-phone-input` package, run the following command:
 npm install ak-react-phone-input
 ```
 
+```bash
+yarn add ak-react-phone-input
+```
+
 Usage
 
 Here's an example of how to use the AkPhoneInput component:
