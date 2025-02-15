@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "module": "ESNext",
+    "module": "ESNext",  // This will produce ESM output
     "target": "ES6",
     "declaration": true,
     "declarationMap": true,
     "jsx": "react-jsx",
     "strict": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
-  "include": ["src"]
-}
-
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  }

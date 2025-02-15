@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/cjs", // Output directory for CommonJS build
+    "module": "CommonJS",  // CommonJS output
+    "target": "ES6",  // Same target for compatibility
+    "declaration": true,  // Generate declaration files
+    "declarationMap": true,  // Map declarations to source code
+    "jsx": "react-jsx",  // JSX transformation for React
+    "strict": true,  // Enforce strict type checks
+    "esModuleInterop": true,  // Enable module interop
+    "moduleResolution": "node",  // Resolve modules like Node.js
+    "resolveJsonModule": true  // Support importing JSON files
+  },
+  "include": ["src"],  // Include all files in the src directory
+  "exclude": ["node_modules"]  // Exclude node_modules
+}
+
