@@ -7,7 +7,6 @@
     "declarationMap": true,
     "jsx": "react-jsx",
     "strict": true,
-    "esModuleInterop": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
