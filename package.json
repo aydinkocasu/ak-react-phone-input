@@ -1,6 +1,6 @@
 {
   "name": "ak-react-phone-input",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A customizable phone input component for React",
   "keywords": ["react", "phone-input", "react-component", "shadcn", "input-field", "form", "UI", "typescript"],
   "main": "dist/cjs/index.js",
