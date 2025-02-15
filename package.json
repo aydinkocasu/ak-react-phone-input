@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --build",  // Build both formats
+    "build": "tsc --build",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
