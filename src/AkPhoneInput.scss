@@ -32,10 +32,6 @@ $black-text: #1f2937;
         }
       }
 
-      .ak-country-code-and-input {
-        .phone-input {}
-      }
-
       .cs-dropdown {
         background: $white-accent;
 
@@ -255,8 +251,30 @@ $black-text: #1f2937;
     }
   }
 
+  &.dark {
+    background: $black-accent;
+    border-color: $black-muted;
+    color: $white-text;
+
+    input {
+      background: $black-accent;
+      color: $white-text;
+    }
+
+    .cs-option {
+      border-top: 1px solid $black-border;
+      color: $white-text;
+
+      &:hover {
+        background-color: $black-muted;
+      }
+    }
+  }
+
+
   &.filled.dark {
     background: $black-accent;
+    border-color: $black-muted;
     color: $white-text;
 
     input {

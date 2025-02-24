@@ -2,17 +2,19 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import React from "react"
 import { CountryData, countryData } from "./CountryData";
 import "./AkPhoneInput.scss"
-import { CountryCode, getExampleNumber } from "libphonenumber-js";
+import { CountryCode, getExampleNumber, isValidNumber, validatePhoneNumberLength } from "libphonenumber-js";
 import examples from "libphonenumber-js/examples.mobile.json";
 import Portal from "./AkPortal";
 
 
 interface CustomPhoneInputProps {
-	onChange: (value: string) => void
+	onChange: ({ value, isValid }: { value: string, isValid: boolean }) => void
+	errorMessage?: string,
 	radius?: number,
 	variant?: "default" | "filled"
 	mode?: "light" | "dark"
 	noShadow?: boolean
+	defaultCountry?: CountryCode
 }
 
 const CheveronSvg = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg>
@@ -46,7 +48,7 @@ const applyMask = (mask: string, value: string): string => {
 };
 
 
-const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default", noShadow = false }: CustomPhoneInputProps) => {
+const AkPhoneInput = ({ onChange, defaultCountry = "US", radius = 4, mode = "light", variant = "default", noShadow = false, errorMessage = "Please enter valid phone number" }: CustomPhoneInputProps) => {
 	// Dropdown State
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -55,6 +57,7 @@ const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default
 	const [mask, setMask] = useState<string>("");
 
 	const [formattedValue, setFormattedValue] = useState("");
+	const [isValid, setIsValid] = useState<boolean | null>(null)
 
 	// Dropdown search Text
 	const [searchText, setSearchText] = useState<string>("")
@@ -90,7 +93,7 @@ const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default
 		};
 
 		if (!selectedCountry) {
-			const index = countryData.findIndex(cd => cd.value === "US")
+			const index = countryData.findIndex(cd => cd.value === defaultCountry)
 			if (index !== -1) {
 				_handleOnClick(countryData[index])
 			}
@@ -124,8 +127,24 @@ const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default
 		const newRaw = inputText.replace(/\D/g, '');
 
 		const newFormatted = applyMask(mask, newRaw);
+		const isLenghtValid = validatePhoneNumberLength(newRaw, selectedCountry?.value as CountryCode)
+		const isLocalValid = isValidNumber(newRaw, selectedCountry?.value as CountryCode);
+		if (isLenghtValid === undefined) {
+			if (isValid !== isLocalValid) {
+				setIsValid(false)
+			}
+		}
+
+		if (isLenghtValid === "TOO_LONG") return
+
+		if (isLenghtValid !== undefined) {
+			if (isValid === false) {
+				setIsValid(true)
+			}
+		}
+
 		setFormattedValue(newFormatted);
-		onChange(`${currentCode.current} ${newRaw}`)
+		onChange({ value: `${currentCode.current} ${newRaw}`, isValid: isLocalValid })
 	};
 
 	useLayoutEffect(() => {
@@ -138,6 +157,7 @@ const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default
 	}, [formattedValue]);
 
 	const _handleOnClick = (option: CountryData) => {
+		setIsValid(null)
 		setSelectedCountry(option);
 		setMask(getPhoneMask(option.value as CountryCode || "US"));
 		currentCode.current = option.label.split("(")[0]
@@ -152,11 +172,11 @@ const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default
 
 
 	return (
-		<div ref={containerRef} className={`ak-phone-input-main ${variant} ${mode}`} >
-			<div className="ak-phone-input-root" style={{ borderRadius: `${radius}px` }} >
+		<div className={`ak-phone-input-main ${variant} ${mode}`} >
+			<div ref={containerRef} className="ak-phone-input-root" style={{ borderRadius: `${radius}px` }} >
 				<div
 					className="ak-country-select-box"
-					onClick={() => setIsOpen(!isOpen)}
+					onClick={() => setIsOpen((prev) => !prev)}
 					style={{ borderRadius: `${radius}px 0px 0px ${radius}px` }}
 				>
 					{< img className="country-flag" src={selectedCountry?.flag} alt={selectedCountry?.country_name} />}
@@ -210,6 +230,7 @@ const AkPhoneInput = ({ onChange, radius = 4, mode = "light", variant = "default
 					</div>
 				</Portal>
 			</div>
+			{isValid === false && <span>{errorMessage}</span>}
 		</div>
 	);
 };
