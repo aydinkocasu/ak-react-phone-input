@@ -132,6 +132,10 @@ $black-text: #1f2937;
     background: $white-pure;
     gap: 6px;
 
+    &.error {
+      border-color: red;
+    }
+
     .ak-country-select-box {
       display: flex;
       align-items: center;

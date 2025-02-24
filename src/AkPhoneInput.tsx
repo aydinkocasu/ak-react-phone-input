@@ -173,7 +173,7 @@ const AkPhoneInput = ({ onChange, defaultCountry = "US", radius = 4, mode = "lig
 
 	return (
 		<div className={`ak-phone-input-main ${variant} ${mode}`} >
-			<div ref={containerRef} className="ak-phone-input-root" style={{ borderRadius: `${radius}px` }} >
+			<div ref={containerRef} className={`ak-phone-input-root ${isValid === false ? "error" : ""}`} style={{ borderRadius: `${radius}px` }} >
 				<div
 					className="ak-country-select-box"
 					onClick={() => setIsOpen((prev) => !prev)}
@@ -230,8 +230,8 @@ const AkPhoneInput = ({ onChange, defaultCountry = "US", radius = 4, mode = "lig
 					</div>
 				</Portal>
 			</div>
-			{isValid === false && <span>{errorMessage}</span>}
-		</div>
+			{isValid === false && <span style={{ color: "red" }}>{errorMessage}</span>}
+		</div >
 	);
 };
 
